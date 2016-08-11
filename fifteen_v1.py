@@ -29,7 +29,8 @@ class Board:
             print "please enter valid number from grid"
 
     def move(self,index_list):
-        self.board[index_list[0]][index_list[1]],self.board[self.empty[0]][self.empty[1]] = self.board[self.empty[0]][self.empty[1]],self.board[index_list[0]][index_list[1]]
+        self.board[index_list[0]][index_list[1]],self.board[self.empty[0]][self.empty[1]] = self.board[self.empty[0]]
+        [self.empty[1]],self.board[index_list[0]][index_list[1]]
         self.empty = index_list
 
     def move_to_decide(self,a_list):
@@ -41,8 +42,7 @@ class Board:
                 self.move(a_list)
             else :
                 print "please enter valid nummber from grid "
-            # mydict = {(1,0):self.move_up, (-1,0):self.move_down,(0,1):self.move_left,(0,-1):self.move_right }
-            # mydict[tuple(a)]()
+            
         except (KeyError,TypeError):
             print "please enter valid number from grid"
 
@@ -58,7 +58,8 @@ if __name__ =="__main__" :
         b = [range((range1-board_dimension*i),(range1-(board_dimension)*(i+1)),-1) for i in range(board_dimension)]
         b[board_dimension-1][board_dimension-1] = "*"
         if board_dimension % 2 == 0:
-            b[board_dimension-1][board_dimension-2],b[board_dimension-1][board_dimension-3] = b[board_dimension-1][board_dimension-3],b[board_dimension-1][board_dimension-2]
+            b[board_dimension-1][board_dimension-2],b[board_dimension-1][board_dimension-3] = b[board_dimension-1]
+            [board_dimension-3],b[board_dimension-1][board_dimension-2]
 
         correct_Board = [range((i* board_dimension)+1,((i+1)*board_dimension)+1) for i in range(board_dimension)]
         correct_Board[board_dimension-1][board_dimension-1] = "*"
